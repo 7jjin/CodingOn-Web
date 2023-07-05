@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 속성값을 변수화 */
+        /* 변수 : 특정값을 저장하는 공간 */
+        :root {
+            --main-color: green;
+            --main-bg-color: white;
+            --sub-color: yellow;
+            --main-font-size: 30px;
+        }
+
+        div [type=text] {
+            background-color: var(--main-color)
+        }
+
+        *:not([value="1234"]) {
+            color: var(--sub-color);
+            font-size: var(--main-font-size)
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="HEROPY" />
+    <input type="password" value="1234" />
+    <input type="text" value="ABCD" disabled />
+</body>
+
+</html>
