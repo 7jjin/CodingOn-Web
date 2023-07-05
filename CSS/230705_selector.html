@@ -7,27 +7,39 @@
     <title>Document</title>
 </head>
 <style>
-    * {
+    #id.orange.apple {
         color: red
     }
 
-    li {
-        color: blue
+    div>ul>.orange {
+        color: orange
     }
 
-    .strawberry {
-        background-color: grey;
+    div .orange {
+        background-color: red;
+    }
+
+    ul+div {
+        color: blueviolet
+    }
+
+    .apple~li {
+        font-weight: 900;
+        font-size: 30px;
     }
 </style>
 
 <body>
-    <div>안녕0</div>
-    <span>안녕하세요</span>
-
-    <ul>
-        <li>사과</li>
-        <li class="strawberry">딸기</li>
-    </ul>
+    <div>
+        <ul>
+            <li class="apple">사과</li>
+            <li>딸기</li>
+            <li class="orange">오렌지</li>
+        </ul>
+        <div>당근</div>
+        <p>토마토</p>
+        <span class="orange">오렌지</span>
+    </div>
 </body>
 
 </html>
