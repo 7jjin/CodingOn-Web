@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .fruits span:first-child {
+        /* .fruits span:first-child {
             color: red;
         }
 
@@ -17,6 +17,19 @@
         .fruits h3:last-child {
             color: red;
         }
+
+        .fruits *:nth-child(2) {
+            background-color: green;
+        } */
+
+        /* .fruits *:nth-child(2n+1) {
+            background-color: green;
+        } */
+
+        .fruits *:not(.orange) {
+            background-color: green;
+            color: white
+        }
     </style>
 </head>
 
@@ -24,7 +37,7 @@
     <div class="fruits">
         <span>딸기</span>
         <span>수박</span>
-        <div>오렌지</div>
+        <div class="orange">오렌지</div>
         <P>망고</P>
         <h3>사과</h3>
     </div>
