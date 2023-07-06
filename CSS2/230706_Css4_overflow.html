@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .inner {
+            width: 300px;
+            height: 100px;
+            background-color: brown;
+        }
+
+        .flex-box {
+            /* flex: "자식 요소를 inline-block으로 만든다!" */
+            display: flex;
+            /* 가로 가운데 정렬 */
+            justify-content: center;
+            height: 500px;
+            background-color: aqua;
+            /* 세로 가운데 정렬 */
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .child-box {
+
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+
+    <div class="flex-box">
+        <div class="child-box">
+
+        </div>
+        <div class="child-box">
+
+        </div>
+        <div class="child-box">
+
+        </div>
+    </div>
+
+    <i class="fa-sharp fa-light fa-house"></i>
+
+</body>
+
+</html>

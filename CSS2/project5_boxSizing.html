@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            border: 15px solid red;
+            background-color: orange;
+
+        }
+
+        .content {
+            box-sizing: content-box;
+        }
+
+        .content:hover {
+            opacity: 0.7;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .border {
+            box-sizing: border-box;
+            /* visibility: hidden; */
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box content"></div>
+    <br><br>
+    <div class="box border"></div>
+</body>
+
+</html>
