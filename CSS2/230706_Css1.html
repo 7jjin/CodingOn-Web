@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap');
+
+        @font-face {
+            font-family: 'TTWanjudaedunsancheB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            font-size: 20px;
+            /* font-family: 'Gaegu', cursive; */
+
+        }
+
+        div {
+            font-weight: 900;
+        }
+
+        main {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .font-px {
+            font-size: 20px;
+            font-family: 'Gaegu', cursive;
+        }
+
+        /* 상위 요소의 배수 -> 가장 가까운 부모요소의 font-size의 배수 */
+        .font-em {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        /* 상위 요소의 배수 -> 가장 상위에 있는 요소의 font-size의 배수 */
+        .font-rem {
+            font-size: 1.5rem;
+            line-height: 2;
+            font-family: 'TTWanjudaedunsancheB', sans-serif;
+            font-weight: 100;
+            color: hwb(34 57% 0%);
+            text-decoration: underline;
+        }
+
+        /* 가장 상위에 있는 요소의 font-size의 비율 */
+        .font-per {
+            font-size: 100%;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="font-px">안녕하세요</div>
+        <div class="font-em">안녕하세요</div>
+        <div class="font-rem">안녕하세요</div>
+        <div class="font-per">안녕하세요</div>
+    </main>
+
+    <span>
+        <div>
+
+        </div>
+    </span>
+
+    <div style="background-color:red; width: 100px;">aaa</div>
+    <div style="display:inline-block; background-color: green;">ccc</div>
+
+    <span style="background-color:blue; width: 100px;">bbb</span>
+
+
+
+
+</body>
+
+</html>
