@@ -60,15 +60,40 @@
 
   .header2> .menus{
     display: flex;
+    width: 100%;
     align-items: center;
+    justify-content: space-between;
   }
   
   /* header3 */
   .header3 {
-    display: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header3 > ul{
+    display: flex;
+    width: 300px;
+    justify-content: space-evenly;
   }
   
   /* header4 */
   .header4 {
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menu-left,.menu-right{
+    display: flex;  
+     
+  }
+  .menu-left > ul{
+    display: flex;
+  }
+  .menu-left > span , .menu-left>ul>li{
+    margin-right: 20px;
+  }
+  .menu-right>li{
+    margin-left: 20px;
   }
