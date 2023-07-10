@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: burlywood;
+            animation: move 3s linear 6;
+
+        }
+
+        .write {
+            position: absolute;
+            animation: moveLeft 2s linear;
+
+        }
+
+        @keyframes moveLeft {
+            0% {
+                margin-left: 100%;
+                width: 300%;
+            }
+
+            100% {
+                margin-left: 0%;
+                width: 100%;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                top: 0px;
+                left: 0px;
+            }
+
+            25% {
+                top: 0px;
+                left: 100px;
+            }
+
+            50% {
+                left: 100px;
+                top: 100px;
+            }
+
+            75% {
+                left: 0px;
+                top: 100px;
+            }
+
+            100% {
+                top: 0px;
+                left: 0px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle"></div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div class="write">“As I relax on the sofa and gaze around a room a thought hits me: this is exactly the place I’ve
+        been looking for all my life. A little hideaway in some sinkhole somewhere. I’d always thought of it as a
+        secret, imaginary place, and can barely believe that it actually exists. I close my eyes and take a breath, and
+        wonder of it all settles over me like a gentle cloud.”</div>
+</body>
+
+</html>
