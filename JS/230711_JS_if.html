@@ -27,39 +27,45 @@
         } else {
             console.log("다 아니야")
         }
-
-        if (조건1) { }
-        else if (조건2) ()
-        else if (조건3) { }
-        else { }
-
-        if (조건1) {
-            if (조건2) {
-
-            } else if (조건3) {
-
-            } else (조건4){
-
-            }
-        } else if (조건5) {
-
-        } else {
-
-        }
     </script>
 
     <script>
         let age = Number(prompt('나이를 입력해 주세요'));
+        let gender = prompt("성별을 입력해 주세요");
         if (age >= 20) {
-            alert("성인입니다.")
-        } else if (age >= 17) {
-            alert("고등학생입니다.")
-        } else if (age >= 14) {
-            alert("중학생입니다.")
-        } else if (age >= 8) {
-            alert("초등학생입니다.")
-        } else {
-            alert("유아입니다.")
+            if (gender === "남") {
+                alert("성인 남자입니다.");
+            } else {
+                alert("성인 여자입니다.")
+            }
+        }
+        else if (age >= 17) {
+            if (gender === "남") {
+                alert("고등학생 남자입니다.");
+            } else {
+                alert("고등학생 여자입니다.")
+            }
+        }
+        else if (age >= 14) {
+            if (gender === "남") {
+                alert("중학생 남자입니다.");
+            } else {
+                alert("중학생 여자입니다.")
+            }
+        }
+        else if (age >= 8) {
+            if (gender === "남") {
+                alert("초등학생 남자입니다.");
+            } else {
+                alert("초등학생 여자입니다.")
+            }
+        }
+        else if (age >= 0) {
+            if (gender === "남") {
+                alert("유아 남자입니다.");
+            } else {
+                alert("유아 여자입니다.")
+            }
         }
     </script>
 </body>
