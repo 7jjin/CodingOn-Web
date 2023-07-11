@@ -4,49 +4,134 @@
 */
 body {
   width: 100%;
+  animation: background 5s infinite linear;
 }
 
 section {
   width: 700px;
   height: 450px;
+  margin-top: 100px;
 }
 
 
 section .sky {
   width: 100%;
   height: 100%;
+  margin-left: 400px;
 }
 
 section .sky .sun {
-  width: 180px;
+  width: 300px;
+  animation: sun 7s infinite linear;
+  opacity: 0;
 }
 
 section .sky .moon {
   width: 160px;
   opacity: 0;
+  position: absolute;
+  top: 161px;
+  left:482px;
+  animation: moon 10s infinite linear;
 }
 
 section .sky .cloud_1 {
-  width: 160px;
+  width: 250px;
+  animation: bigsky 7s infinite linear;
 }
 
 section .sky .cloud_2 {
-  width: 90px;
+  width: 140px;
+  animation: smallsky 4s infinite linear;
 }
-
+.city{
+  width: 100vw;
+}
 section .city .city_img {
-  width: 100%;
+  width: 50%;
+  display: flex;
+  margin: auto;
+  margin-top: 110px;
 }
 
 /* ANIMATION */
 /* 
-  TODO:.5종류의 애니메이션이 필요함
+  TODO:.5종이류의 애니메션이 필요함
   - sky: 배경색 변경 애니메이션
   - sun: sun.png가 회전하는 애니메이션
   - moon: moon.png가 회전하는 애니메이션
   - cloud_1: 큰 구름이 좌우로 이동하는 애니메이션
   - cloud_2: 작은 구름이 좌우로 이동하는 애니메이션
 */
+@keyframes sun {
+  0%{
+    rotate: 0deg;
+    opacity: 1;
+  }
+  50%{
+    rotate: 180deg;
+    opacity: 0.5;
+  }
+  100%{
+    rotate: 360deg;
+    opacity: 0;
+  }
+}
+@keyframes moon {
+  0%{
+    rotate: 0deg;
+    opacity: 0;
+  }
+  50%{
+    rotate: 180deg;
+    opacity: 0.5
+  }
+  100%{
+    rotate: 360deg;
+    opacity: 1;
+  }
+}
+@keyframes bigsky {
+  0%{
+    margin-left: 0px;
+    opacity: 1;
+  }
+  50%{
+    margin-left: 1500px;
+    opacity: 0;
+  }
+  100%{
+    margin-left: 0px;
+    opacity: 1;
+  }
+}
+  @keyframes smallsky {
+    0%{
+      margin-left: 0px;
+      opacity: 1;
+    }
+    50%{
+      margin-left: 1500px;
+      opacity: 0;
+    }
+    100%{
+      margin-left: 0px;
+      opacity: 1;
+    }
+}
+
+@keyframes background {
+  0%{
+    background-color: aquamarine;
+  }
+  50%{
+    background-color: blueviolet;
+  }
+  100%{
+    background-color: aquamarine;
+  }
+}
+
 
 /*
   참고: 알아야 할 속성 소개

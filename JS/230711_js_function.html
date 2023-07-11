@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sayHello() {
+            console.log("hello")
+        }
+
+        // 함수를 만든다고 해서 함수의 내용이 실행되나?
+        // 아님! 호출을 해야 실행됨
+        // sayHello
+
+        sayHello();
+
+        let sayHello2 = function () {
+            console.log("hello2");
+        }
+        sayHello2();
+
+        let sayHello3 = () => {
+            console.log('hello3');
+        }
+
+        sayHello3();
+    </script>
+
+    <script>
+        let number = 5;
+        // 매개변수가 없고, 반환값도 없음
+        // 매개변수란? 함수 외부에서 사용한 변수, 
+        // 값 등을 함수 내부로 전달하고 싶을 때 사용
+
+        // 반환값이란? 함수 내부에서 생성된 변수, 값등을 
+        // 함수 외부로 전달하고 싶을 때 사용
+
+        // 1. 매개변수가 없고, 반환값도 없음
+        function aaa() {
+
+        }
+        //2. 매개변수가 없고, 반환값이 있음.
+        function bbb() {
+            return "bbb";
+        }
+        bbb() // => "bbb"
+        console.log(bbb());
+
+        //3. 매개변수가 있고, 반환값이 없음.
+        let number1 = 5;
+        let number2 = 3;
+        function ccc(num1, num2) {
+            console.log(num1 + num2);
+        }
+        ccc(number1, "hello")
+
+        // 4. 매개변수 있고, 반환값이 있음. (매개변수 1개, 반환값 있음)
+        function ddd(num1, num2) {
+            return num1 + num2;
+        }
+        ddd(5, 4) // =>9
+        let num = ddd(5, 4)
+        console.log(num)
+
+
+        let sum = function (num1, num2) {
+            let num = num1 + num2;
+            let mul = num * 5;
+            return mul;
+        }
+        let sumMul = sum(3, 6)
+        console.log(sumMul)
+
+    </script>
+
+    <script>
+        let multify = (num1, num2) => {
+            return num1 * num2;
+        }
+
+        console.log(multify(3, 7))
+        console.log(multify(2, 2))
+
+
+        let square = (num1) => {
+            console.log(num1 ** 2);
+        }
+        square(4)
+        square(11)
+        square(5)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
