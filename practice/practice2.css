@@ -30,8 +30,8 @@ section .sky .moon {
   width: 160px;
   opacity: 0;
   position: absolute;
-  top: 161px;
-  left:482px;
+  top: 171px;
+    left: 483px;
   animation: moon 10s infinite linear;
 }
 
@@ -122,13 +122,19 @@ section .city .city_img {
 
 @keyframes background {
   0%{
-    background-color: aquamarine;
+    background-color: #636888;
+  }
+  25%{
+    background-color: #b1e1e2;
   }
   50%{
-    background-color: blueviolet;
+    background-color: #fcd2e2;
+  }
+  75%{
+    background-color: #675577;
   }
   100%{
-    background-color: aquamarine;
+    background-color: #636888;
   }
 }
 

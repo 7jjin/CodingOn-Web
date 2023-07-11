@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // let num;
+        // while (isNaN(num)) {
+        //     num = Number(prompt("숫자를 입력하세요"))
+        // }
+        // console.log(isNaN(num))
+
+
+        // while문은 보통 반복될 횟수가 지정되어 있지 않을 때 사용
+        // let number = 5;
+        // while (true) {
+        //     number = Number(prompt("10이상의 숫자를 입력하세요"))
+        //     if (number > 10) {
+        //         break;
+        //     }
+        // }
+        // // 사용자가 숫자를 입력하길 기대하면서, 
+        // // 1~숫자까지의 합을 구하는 코드
+
+
+        // let fruits = ["apple", "banana", "orange", "grape"]
+        // let index = 0;
+        // while (index < fruits.length) {
+        //     console.log(fruits[index]);
+        //     index++;
+        // }
+        let n = 0;
+        let sum = 0;
+        while (n < 100) {
+            if (n % 2 === 0 || n % 3 === 0) {
+                sum += n;
+            }
+            n++;
+        }
+        console.log(sum)
+    </script>
+</body>
+
+</html>
