@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // let now = new Date()    // 2023-07-12일(수) 기준
+        // let expired = new Date("2023-08-07");
+        // console.log(now)
+        // console.log(expired)
+        // console.log(now.getFullYear())  //2023
+        // console.log(now.getMonth() + 1)     // 6
+        // // 주의 getMonth는 실제 월 -1됨.
+
+        // console.log(now.getDate())      // 12
+        // console.log(now.getDay())       // 3=> 요일을 숫자로 표현
+        // console.log(now.getTime() >= expired.getTime());
+
+        // let year = now.getFullYear();
+        // let month = now.getMonth() + 1;
+        // let date = now.getDate();
+        // console.log(`${year}-${month >= 10 ? month : "0" + month}-${date >= 10 ? date : "0" + date}`)
+
+
+        // console.log(Math.PI)
+        // console.log(Math.E)
+        // console.log(Math.min(2, 5, 7, 8))
+        // console.log(Math.max(2, 5, 7, 8))
+        // console.log(Math.random())
+
+        // // 가장 가까운 정수가 나온다.
+        // console.log(Math.round(7.5))
+        // console.log(Math.round(7.2))
+
+        // // 내림
+        // console.log(Math.floor(7.5))
+        // console.log(Math.floor(7.2))
+
+        // // 올림
+        // console.log(Math.ceil(7.5))
+        // console.log(Math.ceil(7.2))
+
+        // console.log(Math.floor(Math.random() * (100 - 1) + 1))
+
+
+
+
+
+
+    </script>
+    <div id="red" class="box red"><span> 빨간 상자</span></div>
+    <div id="orange" class="box orange"></div>
+    <div id="yellow" class="box yellow"></div>
+    <button type="button" onclick="redToggle()">빨강</button>
+    <button type="button" onclick="orangeToggle()">오렌지</button>
+    <button type="button" onclick="yellowToggle()">노랑</button>
+
+
+    <script>
+        // let redBoxbyID = document.getElementById("red");
+        // console.log(redBoxbyID);
+
+        // let boxes = document.getElementsByClassName("box");
+        // console.log(boxes);
+
+        // let boxByTag = document.getElementsByTagName("div");
+        // console.log(boxByTag)
+
+        // let input = document.getElementsByName("id");
+        // console.log(input)
+
+        // let boxesBySelector = document.querySelector(".box")
+        // console.log(boxesBySelector);
+
+        // let boxesBySelectorAll = document.querySelectorAll(".box");
+        // console.log(boxesBySelectorAll)
+
+        // let orangeBySelecotrAll = document.querySelectorAll("#orange");
+        // console.log(orangeBySelecotrAll)
+
+
+        document.write("안녕?")
+        // let redBox = document.getElementById("red");
+        // redBox.innerHTML = "<span>aaa</span>";
+        // console.log(redBox.innerText)
+        // console.log(redBox.innerHTML)
+        // console.log(redBox.textContent)
+
+        // console.log(redBox.className)
+        // redBox.className = "box yellow"
+
+        // console.log(redBox.classList)
+
+        function redToggle() {
+
+            let redBox = document.getElementById("red");
+            // if (redBox.classList.contains("red")) {
+            //     redBox.classList.remove("red")
+            // } else {
+            //     redBox.classList.add("red")
+            // }
+
+            redBox.classList.toggle("red");
+            // classlist 속성은 toggle 함수 제공
+            // 괄호 안에 들어온 값을 리스트 안에 존재하는 지 알아서 판단
+            // 괄호 안에 들어온 값을 자동으로 추가하거나 삭제함.
+
+
+            // classlist 속성은 contains 함수 제공
+            // 괄호 안에 들어온 값이 클래스에 존재하는 지 검사
+            // true false return
+
+            // classlist 속성은 reomve 함수 제공
+            // 괄호 안에 들어온 값을 리스트 안에서 삭제
+
+            // classList 속성은 add 함수 제공
+            // 괄호 안에 들어온 값을 리스트 안에 추가
+        }
+
+        function orangeToggle() {
+            let orangebutton = document.querySelector("#orange");
+            orangebutton.classList.toggle("orange")
+        }
+        function yellowToggle() {
+            let yellowebutton = document.querySelector(".yellow");
+            yellowebutton.classList.toggle("yellow")
+        }
+
+    </script>
+
+</body>
+
+</html>

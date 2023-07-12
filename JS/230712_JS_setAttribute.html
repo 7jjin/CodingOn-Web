@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="red" class="box red"><span> 빨간 상자</span></div>
+        <div id="orange" class="box orange"></div>
+        <div id="yellow" class="box yellow"></div>
+    </div>
+    <button type="button" onclick="createGreenBox()">생겨라!</button>
+    <script>
+        let container = document.querySelector(".container");
+        //console.log(container)
+        console.log(container.children[container.children.length - 1]);
+        let redBox = document.getElementById("red");
+        console.log(redBox.parentElement);
+
+        console.log(redBox.nextElementSibling.nextElementSibling);
+
+        let orangeBox = document.getElementById("orange");
+        console.log(orangeBox.previousElementSibling);
+        // redBox.setAttribute("class", "box orange");
+
+        function createGreenBox() {
+            let createBox = document.createElement("div");
+            createBox.className = "box green";
+
+            //container.append(createBox);    
+            //부모 요소(container)에 마지막 자식으로 괄호 안의 요소를 추가
+
+            //container.appendChild(createBox);
+            // appendChild 안에는 무조건 노드만 
+
+            // container.append("안녕")
+
+            //append는 매개변수로 문자열과 노드객체를 모두 받을 수 있다.
+            //appendChild는 매개변수로 노드객체만 받을 수 있다.
+        }
+
+    </script>
+</body>
+
+</html>
