@@ -36,6 +36,7 @@
         <div id="yellow" class="box yellow"></div>
     </div>
     <button type="button" onclick="createGreenBox()">생겨라!</button>
+    <button type="button" onclick="removeBox()">없어져라!</button>
     <script>
         let container = document.querySelector(".container");
         //console.log(container)
@@ -53,7 +54,7 @@
             let createBox = document.createElement("div");
             createBox.className = "box green";
 
-            //container.append(createBox);    
+            container.prepend(createBox);
             //부모 요소(container)에 마지막 자식으로 괄호 안의 요소를 추가
 
             //container.appendChild(createBox);
@@ -63,6 +64,16 @@
 
             //append는 매개변수로 문자열과 노드객체를 모두 받을 수 있다.
             //appendChild는 매개변수로 노드객체만 받을 수 있다.
+
+            // container.prepend(createBox);
+            //부모 요소(container)에 첫번째 자식으로 괄호 안의 요소를 추가
+
+            orangeBox.after(createBox)
+        }
+        function removeBox() {
+            let orangeBox = document.getElementById("orange");
+            // orangeBox.remove()
+            container.removeChild(orangeBox)
         }
 
     </script>

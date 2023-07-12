@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    값1: <input type="text" id="num1" value="">
+    <br>
+    값2: <input type="text" id="num2" value="">
+    <br>
+    연산자: <input type="text" id="cal" value="">
+    <br>
+    결과: <input type="text" id="sum" value="">
+    <br>
+    <br>
+    <button type="button" onclick="calculate()">계산하기</button>
+    <button type="button" onclick="reset()">초기화</button>
+    <script>
+
+
+        function calculate() {
+            let num1 = Number(document.querySelector("#num1").value);
+            let num2 = Number(document.querySelector("#num2").value);
+            let cal = document.querySelector("#cal").value;
+            let sum = document.querySelector("#sum");
+
+            if (cal === "+") {
+                sum.value = num1 + num2;
+            } else if (cal === "-") {
+                sum.value = num1 - num2;
+            } else if (cal === "*") {
+                sum.value = num1 * num2;
+            } else if (cal === "/") {
+                sum.value = num1 / num2;
+            } else {
+                alert("(+,-,*,/)중에 고르세요")
+            }
+        }
+
+        function reset() {
+            let num1 = document.querySelector("#num1").value;
+            let num2 = document.querySelector("#num2").value;
+            let cal = document.querySelector("#cal").value;
+            let sum = document.querySelector("#sum").value;
+            document.querySelector("#num1").value = "";
+            document.querySelector("#num2").value = "";
+            document.querySelector("#cal").value = "";
+            document.querySelector("#sum").value = "";
+        }
+    </script>
+
+</body>
+
+</html>

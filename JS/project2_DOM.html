@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>방명록입니다.</div>
+    작성자 <input type="text" class="name">
+    <br>
+    내용 <input type="text" class="content">
+    <br><br>
+    <button type="button" class="add" onclick="add()">작성</button>
+    <br>
+    <br>
+    <table border="1" cellspacing="0" cellpadding="10" bordercolor="black">
+        <tbody>
+            <tr>
+                <th>번호</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성일</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>김규리</td>
+                <td>여러분 반가워요</td>
+                <td>2022-7-2 15:3</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김규리</td>
+                <td>오늘 수업도 열심히 해봐요</td>
+                <td>2022-7-2 15:3</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>홍길동</td>
+                <td>안뇽!</td>
+                <td>2022-7-2 15:4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        console.log(new Date)
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let hour = date.getHours()
+        let min = date.getMinutes();
+        function add() {
+            let name = document.querySelector(".name").value
+            let content = document.querySelector(".content").value
+            let len = document.querySelectorAll("tbody>tr").length;
+            let tbody = document.querySelector("tbody");
+
+            let tr = document.createElement("tr");
+            tr.innerHTML = `<tr>
+                <td>${len}</td>
+                <td>${name}</td>
+                <td>${content}</td>
+                <td>${year}-${month}-${day} ${hour}:${min}</td>
+                </tr>`
+            tbody.append(tr)
+
+            document.querySelector(".name").value = ""
+            document.querySelector(".content").value = ""
+        }
+    </script>
+</body>
+
+</html>
