@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        .box {
+            width: 700px;
+            height: 500px;
+            background-color: red;
+        }
+
+        .imgBox {
+            width: 100%;
+            height: 90%;
+            background-color: antiquewhite
+        }
+
+        .buttonBox {
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+            height: 10%;
+        }
+
+        .buttonBox>* {
+            margin-right: 10px;
+            background-color: black;
+            opacity: 0.8;
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="imgBox">
+
+            <img src="" width="100%" height="100%">
+        </div>
+        <div class="buttonBox">
+            <button class="apple" onclick="change('apple')">사과</button>
+            <button class="banana" onclick="change('banana')">바나나</button>
+            <button class="grape" onclick="change('grape')">포도</button>
+            <button class="kiwi" onclick="change('kiwi')">키위</button>
+        </div>
+    </div>
+
+    <script>
+        // function apple() {
+        //     $("img").attr("src", "../img/apple.jpg")
+        // }
+        // function banana() {
+        //     $("img").attr("src", "../img/banana.jpg")
+        // }
+        // function grape() {
+        //     $("img").attr("src", "../img/grape.jpg")
+        // }
+        // function kiwi() {
+        //     $("img").attr("src", "../img/kiwi.jpg")
+        // }
+
+        function change(fruit) {
+            $("img").attr("src", `../img/${fruit}.jpg`)
+        }
+
+    </script>
+</body>
+
+</html>

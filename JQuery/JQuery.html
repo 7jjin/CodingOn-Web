@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            transition: all 1s;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <input type="text" name="id" id="id" />
+    <button onclick="submitt()">바껴라!</button>
+    <button onclick="btn2()">사라져라!</button>
+    <div></div>
+
+    <div class="container">
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="red"></div>
+    </div>
+
+    <button onclick="fn3()">요소 탐색</button>
+    <script>
+
+        function fn3() {
+            // console.log($(".container").children().removeClass("red"))
+
+            // console.log($(".orange").parent("body"))
+
+            console.log($(".red").nextAll())
+            //console.log($(".orange").prev())
+        }
+        //  여러 태그에 한번에 값을 바꿔준다.
+        // $("input").val("aaaa")
+
+
+
+        function submitt() {
+
+
+            // let valueJQeuy = $("#id").val()
+            // let valueJS = document.getElementById("id").value
+            // console.log(valueJQeuy, valueJS)
+
+            //document.getElementById("id").value = "aaa";
+
+            // value값 변경
+            // $("#id").val("aaa")
+
+            // css 변경
+            // $("div").css("background-color", "blue")
+            // $("div").css("border-radius", "20px")
+
+            //attr 함수
+            $("input").attr("placeholder", "아이디 입력하세요")
+
+            // // text 함수 .innerText
+            // $("div").text("안녕")
+
+            // //html 함수 .innerHTML
+            // $("div").html("<p>HI</p>")
+
+            // append 함수
+            $("div").append("<h1>안녕</h1>")
+
+            // prepend 함수
+            $("div").prepend("<h1>안녕</h1>")
+
+            // after
+            $("div").after("<h1>안녕</h1>")
+
+            //before
+            $("div").before("<h1>안녕</h1>")
+
+            //remove
+            // $("div").remove()
+
+            //empty
+            $("div").empty()
+            // addClass 함수
+            // 모든 div 선택자에 적용을 해준다.
+            $("div").addClass("red")
+
+        }
+
+        function btn2() {
+            //removeClass 함수
+            // $("div").removeClass()
+            // $("div").removeClass("red");
+
+            // hasClass 함수
+            console.log($("div").hasClass("red"))
+
+            // toggleClass 함수
+            $("div").toggleClass("red")
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
