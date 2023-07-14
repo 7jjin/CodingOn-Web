@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" name="id" id="id">
+    </div>
+    <button type="button">버튼</button>
+
+    <script>
+
+
+
+        // $(window).addEventListener("load", function () {
+        //     $(".container").append(`<h1>안녕</h1>`)
+        // })
+
+        // $(window).ready(function () {
+        //     $(".container").append(`<h1>안녕</h1>`)
+        // })
+
+
+        //     $(function () { // 페이지 로드 완료 후에 실행되는 함수
+        //         $(".container").append(`<h1>안녕</h1>`)
+        //     })
+
+        // $("button").on("click", function () {
+        //     alert("클릭!")
+        // })
+
+        // $("button").click(function () {
+        //     alert("클릭!")
+        // })
+
+        // 요소 영역에 마우스가 올라가는 순간
+        // $("button").mouseover(function () {
+        //     alert("클릭!")
+        // })
+
+        // // hover 요소 영역에 마우스가 올라가 있는 동안
+        // $("button").hover(function () {
+        //     alert("클릭!")
+        // })
+
+        // $(window).scroll(function () {
+        //     console.log("scroll")
+        // })
+
+        $("input").keydown(function (e) {
+            console.log(e.currentTarget)
+            console.log(this)
+            //sconsole.log(e.key === "Enter")
+
+            // 화살표 함수에서는 this가 잘 안먹힌다.
+        })
+
+
+    </script>
+</body>
+
+</html>
