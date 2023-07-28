@@ -43,27 +43,24 @@
             <img src="/public/css/apple.jpg" width="100%" height="100%">
         </div>
         <div class="buttonBox">
-            <button class="apple" onclick="change('apple')">사과</button>
-            <button class="banana" onclick="change('banana')">바나나</button>
-            <button class="grape" onclick="change('grape')">포도</button>
-            <button class="kiwi" onclick="change('kiwi')">키위</button>
+            <button class="apple" onclick="change('apple')">
+                <%=apple%>
+            </button>
+            <button class="banana" onclick="change('banana')">
+                <%=banana%>
+            </button>
+            <button class="grape" onclick="change('grape')">
+                <%=grape%>
+            </button>
+            <button class="kiwi" onclick="change('kiwi')">
+                <%=kiwi%>
+            </button>
         </div>
+        <a href="./bug">애벌레 페이지로 이동하기</a>
+        <a href="./gugu">구구단 페이지로 이동하기</a>
     </div>
 
     <script>
-        // function apple() {
-        //     $("img").attr("src", "../img/apple.jpg")
-        // }
-        // function banana() {
-        //     $("img").attr("src", "../img/banana.jpg")
-        // }
-        // function grape() {
-        //     $("img").attr("src", "../img/grape.jpg")
-        // }
-        // function kiwi() {
-        //     $("img").attr("src", "../img/kiwi.jpg")
-        // }
-
         function change(fruit) {
             $("img").attr("src", `/public/css/${fruit}.jpg`)
         }

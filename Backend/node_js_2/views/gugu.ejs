@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <% for (let i=0; i < su.length; i++) { %>
+        <h1>현재 구구단은 <%=su[i]%>단 입니다</h1>
+        <% for (let j=0; j < su.length; j++) { %>
+            <h3>
+                <%=su[i]%>x<%=su[j]%> = <%=su[i]*su[j]%>
+            </h3>
+            <% } %>
+                <% } %>
+                    <a href="./bug">애벌레 페이지로 이동하기</a>
+                    <a href="./fruit">과일 페이지로 이동하기</a>
+</body>
+
+</html>

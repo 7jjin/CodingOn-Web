@@ -41,7 +41,16 @@ app.get("/bug", (req, res) => {
 });
 
 app.get("/fruit", (req, res) => {
-  res.render("fruit");
+  res.render("fruit", {
+    apple: "사과",
+    banana: "바나나",
+    grape: "포도",
+    kiwi: "키위",
+  });
+});
+
+app.get("/gugu", (req, res) => {
+  res.render("gugu", { su: [1, 2, 3, 4, 5, 6, 7, 8, 9] });
 });
 
 // 서버 열어주는 것
