@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //promise 개념
+        // function promise1(flag) {
+        //     return new Promise(function (resolve, reject) {
+        //         if (flag) {
+        //             resolve(`romise 상태는 fulfilled!!! then으로 연결됩니다.\n 이때의 flag가 true입니다.`)
+        //         } else {
+        //             reject(`promise 상태는 rejected!!! catch로 연결됩니다.\n 이때의 flag는 false입니다. `)
+        //         }
+        //     });
+        // }
+
+        // promise1(false).then(function (result) {
+        //     console.log(result);
+        // }).catch(function (err) {
+        //     console.log(err)
+        // })
+
+        //promise 사용
+        function goMart() {
+            console.log('마트에가서 어떤 음료 살지 고민');
+        }
+        function pickDrink() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('고민끝');
+                    product = '제로 콜라';
+                    price = 2000;
+                    resolve();
+                }, 2000)
+            })
+        }
+
+        function pay(product, price) {
+            console.log(`상품명: ${product}, 가격: ${price}`);
+        }
+
+
+        // goMart();
+        // pickDrink().then(pay);
+
+        //async/await
+        async function exec() {
+            goMart();
+            await pickDrink();
+            pay();
+        }
+        let product;
+        let price;
+        exec();
+    </script>
+</body>
+
+</html>
