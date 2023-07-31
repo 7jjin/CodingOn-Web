@@ -34,16 +34,16 @@
         }
 
         call("kim")
-            .then(function (name) {
-                console.log(name + "반가워");
-                return back('back');
+            .then(function (res) {
+                console.log(res + "반가워");
+                return back();
             })
-            .then(function (txt) {
-                console.log(txt + "을 실행했구나");
-                return hell("callback hell");
+            .then(function (res) {
+                console.log(res + "을 실행했구나");
+                return hell();
             })
-            .then(function (message) {
-                console.log('여기는 ' + message)
+            .then(function (res) {
+                console.log('여기는 ' + res)
             })
 
     </script>

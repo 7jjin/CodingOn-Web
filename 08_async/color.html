@@ -62,6 +62,40 @@
             .then(() => {
                 return blue();
             })
+
+
+        // 실습3. promise로 배경색 변경하기
+        function changeBgColor(newColor) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = newColor;
+                    resolve();
+                }, 1000);
+            })
+        }
+
+        // 실행
+        changeBgColor('red')
+            .then(() => {
+                return changeBgColor("orange");
+            })
+            .then(() => {
+                return changeBgColor("yellow");
+            })
+            .then(() => {
+                return changeBgColor("green");
+            })
+            .then(() => {
+                return changeBgColor("blue");
+            })
+
+        // async/await
+        async function exec() {
+            await changeBgColor("orange");
+            await changeBgColor("yellow");
+            await changeBgColor("green");
+            await changeBgColor("blue");
+        }
     </script>
 </body>
 

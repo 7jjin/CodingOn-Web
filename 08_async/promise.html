@@ -42,7 +42,7 @@
             })
         }
 
-        function pay(product, price) {
+        function pay() {
             console.log(`상품명: ${product}, 가격: ${price}`);
         }
 
@@ -51,13 +51,13 @@
         // pickDrink().then(pay);
 
         //async/await
+        let product;
+        let price;
         async function exec() {
             goMart();
             await pickDrink();
             pay();
         }
-        let product;
-        let price;
         exec();
     </script>
 </body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //spread 연산자
+        const a = [1, 2, 3];
+        const b = [4, 5];
+
+        const concat = a.concat(b);
+        console.log('concat', concat)
+        const spread = [...a, ...b];
+        console.log('spread', spread)
+        const Person = {
+            name: 'jo',
+            age: 25,
+        }
+        console.log({ ...Person });
+        const c = "Hello";
+        console.log([...c])
+
+
+        //rest 파라미터
+        function get(a, b, ...rest) {
+            console.log(a, b, rest);
+        }
+        get(10, 20, 30, 40, 50, 60);
+
+        // class
+        class Cat {
+            //생성자
+            constructor(name, age) {
+                //속성
+                this.name = name;
+                this, age = age;
+            }
+            //메소드
+            // function 키워드 안쓴다.!!
+            mew() {
+                console.log("야옹");
+            }
+            eat() {
+                console.log("먹이를 먹습니다.")
+            }
+        }
+
+        let cat1 = new Cat('나비', 1);
+        let cat2 = new Cat('냥이', 2);
+        cat1.mew();
+        cat1.eat();
+        cat2.mew();
+    </script>
+</body>
+
+</html>
