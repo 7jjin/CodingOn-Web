@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <!-- get방식 -->
+    <h4>GET 요청</h4>
+    <form action="/getForm" method="get">
+        <input type="text" placeholder="id" name="id" required>
+        <input type="password" placeholder="pw" name="pw" required>
+        <button type="submit">제출</button>
+    </form>
+    <hr>
+    <h4>POST 요청</h4>
+    <form action="/postForm" method="post">
+        <!-- html에서는 require이나 disable는 쓰지 않는데 -> 사용자가 직접 조작할 수 있기 때문 -->
+        <input type="text" placeholder="id" name="id">
+        <!-- disabled는 데이터 전송이 안됀다 -->
+        <input type="password" placeholder="pw" name="pw" pattern="^([a-z0-9]){8,12}">
+        <input type="email"><br>
+        <input type="radio"><br>
+        <input type="checkbox"><br>
+        <input type="tel"><br>
+        <!-- 모바일에서 number 타입을 하면 숫자 키보드만 나온다. -->
+        <input type="number"><br>
+        <input type="date"><br>
+        <input type="time"><br>
+        <input type="color"><br>
+        <button type="submit">제출</button>
+    </form>
+</body>
+
+</html>
