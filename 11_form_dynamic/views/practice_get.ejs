@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <form name="info">
+        이름: <input type="text" name="name">
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="남자">남자
+            <input type="radio" name="gender" value="여자">여자
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>생년월일</legend>
+            <select name="birth_year" id="birth_year">
+                <% for(let i=1990;i<2010;i++) {%>
+                    <option value="<%=i%>">
+                        <%=i%>
+                    </option>
+                    <% } %>
+            </select>
+            년
+            <select name="birth_month" id="birth_month">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            월
+            <select name="birth_day" id="birth_day">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            일
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" name="hobby" value="여행">여행
+            <input type="checkbox" name="hobby" value="패션">패션
+            <input type="checkbox" name="hobby" value="음식">음식
+        </fieldset>
+        <br>
+        <button type="button" onclick="getaxios()">회원가입</button>
+    </form>
+    <div class="resultBox"></div>
+
+    <script>
+        const form = document.forms['info'];
+        const box = document.querySelector(".resultBox")
+        function getaxios() {
+            let checkbox = document.getElementsByName("hobby")
+            let array = [];
+            checkbox.forEach((item) => {
+                if (item.checked === true) {
+                    array.push(item.value)
+                }
+            })
+
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+                birth: `${form.birth_year.value}-${form.birth_month.value}-${form.birth_day.value}`,
+                hobby: array
+            }
+            axios({
+                method: "GET",
+                url: "/axios",
+                params: data
+            }).then(res => {
+                console.log("res", res);
+                box.innerHTML = `
+                <ul>GET 요청 완료
+                <li>이름은: ${res.data.name}</li>
+                <li>성별은: ${res.data.gender}</li>
+                    <li>생년월일은: ${res.data.birth}</li>
+                        <li>관심사는: ${res.data.hobby}</li>
+            </ul>`
+
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -19,9 +19,11 @@
         <fieldset>
             <legend>생년월일</legend>
             <select name="birth_year" id="birth_year">
-                <option value="1999">1999</option>
-                <option value="2000">2000</option>
-                <option value="2001">2001</option>
+                <% for(let i=1990;i<2010;i++) {%>
+                    <option value="<%=i%>">
+                        <%=i%>
+                    </option>
+                    <% } %>
             </select>
             년
             <select name="birth_month" id="birth_month">
