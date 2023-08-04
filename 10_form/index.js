@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 8000;
+const PORT = 8001;
 
 //body-parser : 데이터를 받아오는 방식(둘다 언제 쓰일지 몰라서 두개 모두 쓰는게 좋다)
 app.use(express.urlencoded({ extended: true })); // form 데이터

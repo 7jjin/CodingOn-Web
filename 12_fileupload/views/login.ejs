@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Login Details</title>
+</head>
+
+<body>
+    <h3>회원가입 정보</h3>
+    <p>아이디: <%= id %>
+    </p>
+    <p>비밀번호: <%= pw %>
+    </p>
+    <p>이름: <%= name %>
+    </p>
+    <p>나이: <%= age %>
+    </p>
+    <% if (file) { %>
+        <p>프로필 사진:</p>
+        <img src="<%= file %>" alt="프로필 사진">
+        <% } else { %>
+            <p>프로필 사진이 없습니다.</p>
+            <% } %>
+</body>
+
+</html>

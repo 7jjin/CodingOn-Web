@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>개인 정보</h3>
+    <br>
+    <form name="info">
+        아이디 : <input type="text" name="id"><br>
+        비밀번호 : <input type="password" name="pw"><br>
+        이름 : <input type="text" name="name"><br>
+        나이 : <input type="number" name="age"><br>
+        프로필 사진 : <input type="file" name="file" multiple><br>
+        <button type="button">리셋</button>
+        <button type="button" onclick="reg()">회원가입</button>
+    </form>
+    <script>
+        function reg() {
+            const forms = document.forms["info"];
+            const formData = new FormData(forms);
+
+            axios.post("/getlogin", formData)
+                .then((res) => {
+                    // 백엔드에서 처리한 결과 페이지로 이동
+                    window.location.href = "/login";
+                    // 여기서 데이터를 또 백엔드로 보내줘야 한다. post로 , get으로 보내도 된다.
+                })
+                .catch((err) => {
+                    console.error("Error:", err);
+                });
+        }
+    </script>
+</body>
+
+</html>
