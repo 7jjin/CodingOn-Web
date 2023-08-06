@@ -15,13 +15,13 @@ app.get("/", (req, res) => {
   res.render("index", { title: "폼 전송 실습" });
 });
 // get은 req.query 사용
-app.get("/getForm", (req, res) => {
-  console.log(req.query);
-  res.render("result", {
-    title: "GET요청 폼 결과 확인하기",
-    userInfo: req.query,
-  });
-});
+// app.get("/getForm", (req, res) => {
+//   console.log(req.query);
+//   res.render("result", {
+//     title: "GET요청 폼 결과 확인하기",
+//     userInfo: req.query,
+//   });
+// });
 
 // post은 req.body 사용
 app.post("/postForm", (req, res) => {

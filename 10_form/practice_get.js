@@ -11,8 +11,8 @@ app.set("view engine", "ejs");
 app.set("views", "./view");
 
 app.get("/", (req, res) => {
-  //   console.log(req.body);
-  res.render("practice_post");
+  console.log(req.body);
+  res.render("practice_get");
 });
 
 // app.get("/getForm", (req, res) => {
