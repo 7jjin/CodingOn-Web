@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <form name="info">
+        id <input type="text" name="id">
+        <br>
+        pw <input type="password" name="pw">
+        <br>
+        <button type="button" onclick="login()">로그인</button>
+        <div class="box"></div>
+    </form>
+    <script>
+        const conbox = document.querySelector(".box");
+        function login() {
+            const form = document.forms["info"];
+            const data = {
+                id: form.id.value,
+                pw: form.pw.value,
+            };
+            axios({
+                method: "POST",
+                url: "/login",
+                data: data,     // 백엔드로 데이터 보내주기
+            })
+                .then((res) => {    // 백엔드에서 받은 데이터
+                    if (res.data.success) {
+                        console.log("res", res)
+                        conbox.textContent = "로그인 성공입니다.";
+                        conbox.style.color = "blue";
+                    } else {
+                        console.log("res", res)
+                        conbox.textContent = "로그인 실패입니다.";
+                        conbox.style.color = "red";
+                    }
+                })
+        }
+    </script>
+
+</body>
+
+</html>
