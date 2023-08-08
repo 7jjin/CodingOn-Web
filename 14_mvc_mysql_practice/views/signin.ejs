@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>로그인 화면입니다.</h2>
+    <form name="infos">
+        name <input type="text" name="name">
+        <br>
+        id <input type="text" name="userid">
+        <br>
+        pw <input type="password" name="pw">
+        <br>
+        <button type="button" onclick="login()">로그인</button>
+    </form>
+
+    <div class="box">
+        <br>
+    </div>
+
+    <script>
+        const form = document.forms['infos'];
+        const box = document.querySelector(".box")
+        function login() {
+            const data = {
+                name: form.name.value,
+                userid: form.userid.value,
+                pw: form.pw.value
+            }
+            axios({
+                method: "POST",
+                url: "/user/signin",
+                data
+            }).then((res) => {
+                console.log("res", res)
+                if (res.data.success) {
+                    box.textContent = "회원정보가 일치합니다."
+                    box.style.color = "blue"
+                    const Atag = document.createElement("A");
+                    Atag.setAttribute("href", "/user/profile");
+                    Atag.innerText = "프로필 페이지로 이동"
+                    box.append(Atag);
+                } else {
+                    box.textContent = "회원정보가 일치하지 않습니다."
+                    box.style.color = "red"
+                    window.location.reload();
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
