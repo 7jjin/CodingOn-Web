@@ -13,10 +13,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
+  const validId = "abc";
+  const validPw = "1234";
   const { id, pw } = req.body;
   console.log("back", req.body);
-  const validId = "whwlsgud";
-  const validPw = "1234";
 
   if (id === validId && pw === validPw) {
     res.send({ success: true }); // 프론트로 데이터 보내기

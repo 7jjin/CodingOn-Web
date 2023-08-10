@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 8000;
+const db = require("./models/index");
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -23,6 +24,12 @@ app.use("*", (req, res) => {
   res.render("404");
 });
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
+// 기본값은 fasle
+// false -> 테이블이 있으면 넘어가고 테이블이 없으면 만들어준다.(개발할 때만 사용)
+// 테이블이 있으면 복수형태로 만들어준다. 없으면 새로만들어줌
+// true -> 무조건 생성
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}`);
+  });
 });
