@@ -31,3 +31,25 @@ exports.post_signin = (data, callback) => {
     callback(rows);
   });
 };
+
+exports.post_profile = (data, callback) => {
+  const query = `SELECT * FROM user_practice WHERE userid='${data.userid}' `;
+  conn.query(query, (err, rows) => {
+    console.log("post_profile", rows);
+    callback(rows);
+  });
+};
+
+exports.edit_profile = (data, callback) => {
+  const query = `UPDATE user_practice SET userid='${data.userid}', pw='${data.pw}', name='${data.name}' WHERE id=${data.id}  `;
+  conn.query(query, (err, rows) => {
+    callback();
+  });
+};
+
+exports.delete_profile = (id, callback) => {
+  const query = `DELETE FROM user_practice WHERE id=${id}`;
+  conn.query(query, (err, rows) => {
+    callback();
+  });
+};

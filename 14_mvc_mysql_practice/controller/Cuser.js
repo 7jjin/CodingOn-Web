@@ -27,3 +27,23 @@ exports.post_signin = (req, res) => {
     }
   });
 };
+
+exports.post_profile = (req, res) => {
+  User.post_profile(req.body, (result) => {
+    if (result.length > 0) {
+      res.render("profile", { data: result[0] });
+    }
+  });
+};
+
+exports.edit_profile = (req, res) => {
+  User.edit_profile(req.body, () => {
+    res.send({ result: true });
+  });
+};
+
+exports.delete_profile = (req, res) => {
+  User.delete_profile(req.body.id, () => {
+    res.send({ result: true });
+  });
+};
