@@ -35,6 +35,6 @@ app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
 
-// 헤맷던 점 : httponly를 쓰면 document.cookie가 안떠서 콘솔에 찍을 수가 없다. 그리고 값이 안나온다.
+// 던 점 : httponly를 쓰면 document.cookie가 안떠서 콘솔에 찍을 수가 없다. 그리고 값이 안나온다.
 // 그리고 나는 쿠키가 있는 상태에서 모달창을 지우면 쿠키를 없애는 식으로 로직을 짯는데
 // 그 반대로 하는 것이 더 효율적인 방법임.

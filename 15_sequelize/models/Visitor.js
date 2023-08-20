@@ -1,3 +1,5 @@
+const { DataTypes } = require("sequelize");
+
 // visitor에 대한 테이블 정의
 const Visitor = function (sequelize, DataTypes) {
   // sequelize는 models/index.js에 있는 sequelize
