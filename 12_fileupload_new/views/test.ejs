@@ -32,22 +32,37 @@
             for (let i = 0; i < file.files.length; i++) {
                 formData.append("dynamic", file.files[i])
             }
-            const res = await axios({
-                method: "post",
-                url: "/dynamic",
-                data: formData,
-                headers: {
-                    "Content-Type": "multipart/form-data"
+
+            try {
+                const res = await axios({
+                    method: "post",
+                    url: "/dynamic",
+                    data: formData,
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                })
+                console.log("res", res)
+                for (let i = 0; i < Number(res.data.length); i++) {
+                    // 내가 한 방법
+                    // let resultBox = document.createElement("div")
+                    // console.log(res.data[i].path)
+                    // resultBox.setAttribute("class", `resultBox[${i}]`)
+                    // resultBox.innerHTML += `<img src=${res.data[i].path} style="width: 100px; height: 100px;">`
+                    // result.appendChild(resultBox)
+
+                    // 더 좋은 방법
+                    const img = document.createElement("img");
+                    img.src = res.data[i].path;
+                    img.style.width = "100px";
+                    result.appendChild(img)
                 }
-            })
-            console.log("res", res)
-            for (let i = 0; i < Number(res.data.length); i++) {
-                let resultBox = document.createElement("div")
-                console.log(res.data[i].path)
-                resultBox.setAttribute("class", `resultBox[${i}]`)
-                resultBox.innerHTML += `<img src=${res.data[i].path} style="width: 100px; height: 100px;">`
-                result.appendChild(resultBox)
+            } catch (error) {
+                console.log(error)
             }
+
+
+
         }
     </script>
 </body>
