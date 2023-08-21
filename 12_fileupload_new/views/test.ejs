@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>파일 여러개 올리기</h1>
+    <form onsubmit="fileupload(event)">
+        <input type="file" id="dynamic" multiple><br>
+        <input type="text" id="title"><br>
+        <button type="submit">업로드하기</button>
+    </form>
+    <div class="result"></div>
+    <br>
+
+
+    <script>
+        const result = document.querySelector(".result")
+        async function fileupload(event) {
+            event.preventDefault();
+            const title = document.querySelector("#title").value;
+            const file = document.querySelector("#dynamic");
+
+            const formData = new FormData();
+
+            formData.append("title", title)
+            for (let i = 0; i < file.files.length; i++) {
+                formData.append("dynamic", file.files[i])
+            }
+            const res = await axios({
+                method: "post",
+                url: "/dynamic",
+                data: formData,
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            })
+            console.log("res", res)
+            for (let i = 0; i < Number(res.data.length); i++) {
+                let resultBox = document.createElement("div")
+                console.log(res.data[i].path)
+                resultBox.setAttribute("class", `resultBox[${i}]`)
+                resultBox.innerHTML += `<img src=${res.data[i].path} style="width: 100px; height: 100px;">`
+                result.appendChild(resultBox)
+            }
+        }
+    </script>
+</body>
+
+</html>
