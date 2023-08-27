@@ -28,39 +28,51 @@
 
             const formData = new FormData();
 
+            console.log(file.files)
             formData.append("title", title)
             for (let i = 0; i < file.files.length; i++) {
                 formData.append("dynamic", file.files[i])
             }
 
-            try {
-                const res = await axios({
-                    method: "post",
-                    url: "/dynamic",
-                    data: formData,
-                    headers: {
-                        "Content-Type": "multipart/form-data"
-                    }
-                })
-                console.log("res", res)
-                for (let i = 0; i < Number(res.data.length); i++) {
-                    // 내가 한 방법
-                    // let resultBox = document.createElement("div")
-                    // console.log(res.data[i].path)
-                    // resultBox.setAttribute("class", `resultBox[${i}]`)
-                    // resultBox.innerHTML += `<img src=${res.data[i].path} style="width: 100px; height: 100px;">`
-                    // result.appendChild(resultBox)
+            // try {
+            //     const res = await axios({
+            //         method: "post",
+            //         url: "/dynamic",
+            //         data: formData,
+            //         headers: {
+            //             "Content-Type": "multipart/form-data"
+            //         }
+            //     })
+            //     console.log("res", res)
+            //     for (let i = 0; i < Number(res.data.length); i++) {
+            //         // 내가 한 방법
+            //         // let resultBox = document.createElement("div")
+            //         // console.log(res.data[i].path)
+            //         // resultBox.setAttribute("class", `resultBox[${i}]`)
+            //         // resultBox.innerHTML += `<img src=${res.data[i].path} style="width: 100px; height: 100px;">`
+            //         // result.appendChild(resultBox)
 
-                    // 더 좋은 방법
-                    const img = document.createElement("img");
-                    img.src = res.data[i].path;
-                    img.style.width = "100px";
-                    result.appendChild(img)
+            //         // 더 좋은 방법
+            //         const img = document.createElement("img");
+            //         img.src = res.data[i].path;
+            //         img.style.width = "100px";
+            //         result.appendChild(img)
+            //     }
+            // } catch (error) {
+            //     console.log(error)
+            // }
+
+
+            axios({
+                method: "post",
+                url: "/dynamic",
+                data: formData,
+                headers: {
+                    "Content-Type": "multipart/form-data"
                 }
-            } catch (error) {
-                console.log(error)
-            }
-
+            }).then(res => {
+                console.log("res", res)
+            })
 
 
         }

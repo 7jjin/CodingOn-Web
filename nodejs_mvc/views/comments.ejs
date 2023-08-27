@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>댓글 전체 목록</h1>
+    <a href="/">홈으로</a>
+    <ul>
+        <% for(let i=0;i<list.length;i++){ <li> %>
+            </li>
+            <b>
+                <%= list[i].userid%>
+            </b>
+            <a href="/comment/<%=list[i].id%>">
+                <%= list[i].comment%>
+            </a>
+            </li>
+            <%}%>
+    </ul>
+</body>
+
+</html>

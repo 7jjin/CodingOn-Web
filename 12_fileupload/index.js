@@ -50,6 +50,7 @@ app.post("/upload/array", uploadDetail.array("userfiles"), (req, res) => {
   console.log(req.files);
   console.log(req.body);
 });
+
 // 멀티(ver2)
 app.post(
   "/upload/fields",

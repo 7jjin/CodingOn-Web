@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>회원정보 추가하기</h1>
+    <form name="infos">
+        이름을 입력하세요 : <input type="text" name="name"><br>
+        성별을 입력하세요 : <input type="text" name="gender"><br>
+        전공을 입력하세요 : <input type="text" name="major"><br>
+        <button type="button" onclick="add()">회원정보 추가하기</button>
+    </form>
+
+    <script>
+        async function add() {
+            const form = document.forms["infos"];
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+                major: form.major.value
+            }
+            const res = await axios({
+                method: "POST",
+                url: "/addinfo",
+                data
+            })
+            console.log("res", res)
+            alert("회원 정보가 추가되었습니다.")
+            window.location = "/Getinfo"
+        }
+
+    </script>
+</body>
+
+</html>

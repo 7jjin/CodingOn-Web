@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post("/dynamic", upload.array("dynamic"), (req, res) => {
+app.post("/dynamic", upload.array("dynamic", 2), (req, res) => {
   console.log(req.files);
   res.send(req.files);
 });

@@ -41,12 +41,10 @@ const storage = multer.diskStorage({
     cb(null, newName);
   },
 });
-
 // 파일 크기 제한
 const limits = {
   fileSize: 5 * 1024 * 1024, // 5MB
 };
-
 // key-value에서 key값과 value의 변수가 동일 하면 합칠 수 있음
 const upload = multer({ storage, limits });
 

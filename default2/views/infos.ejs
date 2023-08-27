@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>모든 회원 정보</h1>
+    <ul>
+        <% for(let i=0;i<list.length;i++){ %>
+            <li>
+                <b>
+                    <%= list[i].id%>
+                </b>
+                <b>
+                    <%= list[i].name%>
+                </b>
+                <b>
+                    <%= list[i].gender%>
+                </b>
+                <b>
+                    <%= list[i].major%>
+                </b>
+
+            </li>
+            <%}%>
+    </ul>
+</body>
+
+</html>
