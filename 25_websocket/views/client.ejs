@@ -33,6 +33,7 @@
         });
         //메세지 주고 받음
         socket.addEventListener("message", (event) => {
+
             // console.log(event)
             // console.log(`서버로부터 받은 메세지: ${event.data}`)
             const li = document.createElement("li");
@@ -54,6 +55,8 @@
             const msg = chatForm.querySelector("#message");
             const name = chatForm.querySelector("#name");
 
+
+            // 서버가 모두 nodejs가 아니기때문에 서버로 보내는 데이터는 문자열 형태로 보내야 함
             const data = JSON.stringify({
                 msg: msg.value,
                 name: name.value
