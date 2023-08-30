@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div>Socket IO</div>
+    <ul></ul>
+    <form id="chat">
+        <input type="text" id="user" placeholder="사용자명">
+        <input type="text" id="message" placeholder="채팅내용"><br>
+        <button>채팅</button>
+    </form>
+
+
+
+    <script>
+        const charForm = document.querySelector("#chat");
+        const ul = document.querySelector("ul")
+
+        const socket = io();
+        // 이벤트 생성
+        socket.emit("jo", { name: "client", message: "hello server" }, (res) => {
+            console.log("res", res)
+        })      // Json.stringfy 안해도 됨 (socket.io가 알아서 처리해줌) //백엔드에서도 parse할 필요 없음
+        socket.on("backend_message", (arg) => {
+            const li = document.createElement("li");
+            li.textContent = `${arg.name}: ${arg.message}`;
+            ul.appendChild(li)
+        })
+
+        // 폼 이벤트
+        charForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const user = charForm.querySelector("#user");
+            const message = charForm.querySelector("#message");
+            socket.emit("form_message", { name: user.value, message: message.value })
+        });
+    </script>
+</body>
+
+</html>

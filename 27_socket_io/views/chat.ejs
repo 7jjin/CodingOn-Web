@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <ul></ul>
+    <div class="chat_box">
+    </div>
+    <form id="chat">
+        <input type="text" id="message" placeholder="채팅내용"><br>
+        <button>채팅</button>
+        <button type="button" onclick="leave()">나가기</button>
+    </form>
+
+    <script>
+        const chatForm = document.querySelector("#chat");
+        const chat_box = document.querySelector(".chat_box");
+        // 클라이언트 소켓 연결
+        const socket = io();
+
+        // 채팅방 생성
+        const chatRoom = prompt("채팅방명을 입력하세요");
+        socket.emit("join", chatRoom)
+
+
+        // 브라우저 접속시
+        socket.on("create", (userid) => {
+            const id = userid;
+            const div = document.createElement("p");
+            div.setAttribute("class", "welcome")
+            div.textContent = `${userid}님이 들어왔습니다.`;
+            chat_box.appendChild(div)
+
+        });
+
+        // 서버에서 보내주는 값
+        socket.on("chat", (res, userid) => {
+            const div = document.createElement("div")
+            const span = document.createElement("span");
+            span.textContent = res;
+
+            // 내가 보낸 메시지인지 판별
+            if (userid === socket.id) {
+                span.setAttribute("class", "my_msg");
+                div.setAttribute("class", "outer_right")
+            } else {
+                span.setAttribute("class", "your_msg");
+                div.setAttribute("class", "outer_left")
+            }
+            div.appendChild(span)
+            chat_box.appendChild(div);
+        });
+
+        // form 이벤트
+        chatForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const msg = chatForm.querySelector("#message");
+            socket.emit("message", msg.value);
+            msg.value = ""
+        })
+
+        function leave() {
+            console.log("leave")
+            socket.emit("leave")
+        }
+
+
+
+
+
+    </script>
+    <style>
+        .chat_box {
+            width: 400px;
+            height: 500px;
+            background-color: aqua;
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 8px;
+
+        }
+
+        /* 내 메시지 스타일 */
+        .my_msg {
+            color: black;
+            background-color: yellow;
+            padding: 5px;
+            border-radius: 5px
+        }
+
+        /* 상대 메시지 스타일 */
+        .your_msg {
+            color: black;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px
+        }
+
+        .outer_right {
+            display: flex;
+            justify-content: flex-end;
+            margin: 10px 0px;
+        }
+
+        .outer_left {
+            display: flex;
+            justify-content: flex-start;
+            margin: 10px 0px;
+        }
+
+        .welcome {
+            text-align: center;
+            background-color: antiquewhite;
+        }
+    </style>
+</body>
+
+</html>
