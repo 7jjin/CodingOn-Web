@@ -2,19 +2,13 @@ import { Component } from 'react';
 
 class EventPractice extends Component {
   handleClick = (message) => {
-    alert(message);
+    alert(this.props.message);
   };
 
   render() {
     return (
       <>
-        <button
-          onClick={(e) => {
-            this.handleClick(this.props.message);
-          }}
-        >
-          Show Message
-        </button>
+        <button onClick={this.handleClick}>Show Message</button>
       </>
     );
   }

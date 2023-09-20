@@ -1,0 +1,15 @@
+.form{
+    border: 1px solid black;
+    padding: 10px
+}
+input{
+    margin-right: 15px;
+}
+select{
+    margin-right: 15px;
+}
+
+td{
+    padding:5px 20px;
+    border:1px solid black;
+}
