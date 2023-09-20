@@ -15,6 +15,7 @@ import Counter from './0920_state';
 import ColorButton from './ColorButton';
 import ShowButton from './ShowButton';
 import TransForm from './Transform';
+import CounterFunc from './CounterFunc';
 
 function App() {
   return (
@@ -42,7 +43,8 @@ function App() {
       {/* <Counter></Counter> */}
       {/* <ColorButton></ColorButton> */}
       {/* <ShowButton></ShowButton> */}
-      <TransForm></TransForm>
+      {/* <TransForm></TransForm> */}
+      <CounterFunc></CounterFunc>
     </>
   );
 }
