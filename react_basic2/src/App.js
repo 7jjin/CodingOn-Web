@@ -1,5 +1,6 @@
 import Board from './Board';
 import LifeCycleClass from './LifeCycleClass';
+import LifeCycleFunc from './LifeCycleFunc';
 import Todo from './Todo';
 import TodoMartin from './TodoMartin';
 import ToggleColor from './ToggleColor';
@@ -15,7 +16,8 @@ function App() {
       {/* <Board></Board> */}
       {/* <Todo></Todo> */}
       {/* <TodoMartin></TodoMartin> */}
-      <LifeCycleClass></LifeCycleClass>
+      {/* <LifeCycleClass></LifeCycleClass> */}
+      <LifeCycleFunc></LifeCycleFunc>
     </>
   );
 }
