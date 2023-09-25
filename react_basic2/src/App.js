@@ -1,3 +1,5 @@
+import RefSampleClass1 from './09Ref/RefSampleClass1';
+import RefSampleClass2 from './09Ref/RefSampleClass2';
 import Board from './Board';
 import LifeCycleClass from './LifeCycleClass';
 import LifeCycleFunc from './LifeCycleFunc';
@@ -27,8 +29,10 @@ function App() {
       {/* <LifeCycleClass></LifeCycleClass> */}
       {/* <LifeCycleFunc></LifeCycleFunc> */}
       {/* <PostList></PostList> */}
-      <button onClick={removeComponent}>연결해제</button>
-      {status && <UpdateList></UpdateList>}
+      {/* <button onClick={removeComponent}>연결해제</button>
+      {status && <UpdateList></UpdateList>} */}
+      <RefSampleClass1></RefSampleClass1>
+      <RefSampleClass2></RefSampleClass2>
     </>
   );
 }
