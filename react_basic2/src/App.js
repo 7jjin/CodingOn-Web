@@ -4,6 +4,7 @@ import RefSampleClass1 from './09Ref/RefSampleClass1';
 import RefSampleClass2 from './09Ref/RefSampleClass2';
 import RefSampleFunc2 from './09Ref/RefSampleFunc2';
 import RefPractice3 from './09Ref/RefPractice3';
+import useCallbackComponent from './10Hook/useCallback';
 import Board from './Board';
 import LifeCycleClass from './LifeCycleClass';
 import LifeCycleFunc from './LifeCycleFunc';
@@ -16,6 +17,9 @@ import ToggleShow from './ToggleShow';
 import UpdateList from './UpdateList';
 
 import { useEffect, useState } from 'react';
+import UseMemo from './10Hook/useMemo';
+import Count from './10Hook/useReducer';
+import SignupForm from './10Hook/useReducerPractice';
 
 function App() {
   const [status, setState] = useState(true);
@@ -41,7 +45,11 @@ function App() {
       {/* <BoardSearch></BoardSearch> */}
       {/* <RefSampleFunc1></RefSampleFunc1> */}
       {/* <RefSampleFunc2></RefSampleFunc2> */}
-      <RefPractice3></RefPractice3>
+      {/* <RefPractice3></RefPractice3> */}
+      {/* <UseMemo></UseMemo> */}
+      {/* <useCallbackComponent></useCallbackComponent> */}
+      {/* <Count></Count> */}
+      <SignupForm></SignupForm>
     </>
   );
 }
