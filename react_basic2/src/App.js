@@ -1,3 +1,4 @@
+import BoardSearch from './09Ref/RefPractice1';
 import RefSampleClass1 from './09Ref/RefSampleClass1';
 import RefSampleClass2 from './09Ref/RefSampleClass2';
 import Board from './Board';
@@ -31,8 +32,9 @@ function App() {
       {/* <PostList></PostList> */}
       {/* <button onClick={removeComponent}>연결해제</button>
       {status && <UpdateList></UpdateList>} */}
-      <RefSampleClass1></RefSampleClass1>
-      <RefSampleClass2></RefSampleClass2>
+      {/* <RefSampleClass1></RefSampleClass1> */}
+      {/* <RefSampleClass2></RefSampleClass2> */}
+      <BoardSearch></BoardSearch>
     </>
   );
 }
