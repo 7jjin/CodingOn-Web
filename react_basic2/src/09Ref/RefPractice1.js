@@ -27,6 +27,9 @@ class BoardSearch extends Component {
   }
 
   addComment() {
+    // ref 연습문제 코드 추가
+    // 에러: 빈문자열을 넣으면 추가가 된다.
+    // 해결: this.state.inputWriter.trim() ==="" 으로 공백을 제거해주면 된다.
     if (this.state.inputWriter && this.state.inputTitle) {
       const newComment = {
         writer: this.state.inputWriter,
