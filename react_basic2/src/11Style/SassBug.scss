@@ -1,0 +1,57 @@
+
+
+.SassBug{
+    .circle{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    .circle1{
+        position: relative;
+        top: 100px;
+        left: 100px;
+        background-color: rgb(72, 196, 237);
+        .eye_white{
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            width: 40px;
+            height: 40px;
+            .eye_black {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: black;
+                left: 0px;
+                top: 7px;
+            }
+        }
+    }.circle2 {
+        background-color: blue;
+        position: absolute;
+        left: 186px;
+        top: 139px;
+    }
+
+    .circle3 {
+        background-color: aqua;
+        position: absolute;
+        left: 250px;
+        top: 195px;
+    }
+
+    .circle4 {
+        background-color: rgb(66, 90, 186);
+        position: absolute;
+        left: 313px;
+        top: 198px;
+    }
+
+    .circle5 {
+        background-color: rgb(27, 149, 149);
+        position: absolute;
+        left: 378px;
+        top: 204px;
+    }
+}

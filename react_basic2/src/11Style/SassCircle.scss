@@ -1,0 +1,52 @@
+
+// .container{
+//     .circle{
+//     width: 100px;
+//     height: 100px;
+//     border-radius: 50%;
+//     // animation:round 3s ease-in Infinite Alternate;
+    
+//     }
+   
+//     .circlePink{
+//         background-color: pink;
+//         @include round(50px,50px,50px,50px,0px);
+//     }
+//     .circleYellow{
+//         background-color: yellow;
+//     }
+//     .circleGreen{
+//         background-color: green;
+//     }
+// }
+
+// @mixin round($firstLeft,$secondTop,$secondLeft,$thirdTop,$thirdLeft){
+//     @keyframes roundcircle {
+//         0% {
+//           top: 0;
+//           left: 0;
+//         }
+//         25% {
+//           top: 0px;
+//           left:$firstLeft;
+//         }
+//         50% {
+//         top:$secondTop;
+//         left: $secondLeft;
+//         }
+//         100% {
+//           top: $thirdTop;
+//           left: $thirdLeft;
+//         }
+//       }
+// }
+
+
+
+
+@import './util2.scss';
+
+
+
+
+
