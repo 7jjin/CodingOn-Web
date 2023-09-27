@@ -24,6 +24,15 @@ import Style from './11Style/Style';
 import SassComponent from './11Style/SassComponent';
 import SassBug from './11Style/Sassbug';
 import SassCircle from './11Style/SassCircle';
+import StyledComponent from './11Style/StyledComponent';
+import StyledPractice from './11Style/StyledPractice';
+import StyledPrac3 from './11Style/StyledPractice';
+import StyledPrac4 from './11Style/StyledPrac4';
+// import Router from './12Router/Router';
+import Header from './12Router/Header';
+import { Outlet } from 'react-router-dom';
+import PR_navbar from './12Router/PR_navbar';
+import RouterPrac1 from './12Router/PR_router';
 
 function App() {
   const [status, setState] = useState(true);
@@ -57,7 +66,18 @@ function App() {
       {/* <Style></Style> */}
       {/* <SassComponent></SassComponent> */}
       {/* <SassBug></SassBug> */}
-      <SassCircle></SassCircle>
+      {/* <SassCircle></SassCircle> */}
+      {/* <StyledComponent></StyledComponent> */}
+      {/* <StyledPractice></StyledPractice> */}
+      {/* <StyledPrac3></StyledPrac3> */}
+      {/* <StyledPrac4></StyledPrac4> */}
+      {/* var 1 */}
+      {/* <Router></Router> */}
+      {/* var 2 */}
+      {/* <Header /> */}
+
+      <RouterPrac1 />
+      {/* <Outlet /> */}
     </>
   );
 }
