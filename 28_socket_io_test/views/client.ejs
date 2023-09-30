@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <h1>Hello world!</h1>
+    <button class="typeone">hello</button>
+    <button class="typetwo">study</button>
+    <button class="typethree">bye</button><br>
+    <p class="left"></p>
+    <p class="right"></p>
+
+
+    <script>
+        const socket = io();
+        const typeone = document.querySelector(".typeone")
+        const typetwo = document.querySelector(".typetwo")
+        const typethree = document.querySelector(".typethree")
+        const left = document.querySelector(".left");
+        const button = document.querySelectorAll("button")
+
+
+        // 리팩토링 한 버전
+        button.forEach(element => {
+            element.addEventListener("click", (e) => {
+                console.log(e.target.innerHTML);
+                const text = e.target.innerHTML;
+                if (text === "hello") {
+                    socket.emit("msg", { left: typeone.innerHTML, right: "안녕하세요" })
+                } else if (text === "study") {
+                    socket.emit("msg", { left: typetwo.innerHTML, right: "공부하세요" })
+                } else {
+                    socket.emit("msg", { left: typethree.innerHTML, right: "잘가~" })
+                }
+            })
+        });
+
+        // 이전 버전
+        // typeone.addEventListener("click", (e) => {
+        //     socket.emit("typeone", { left: typeone.innerHTML, right: "안녕하세요" })
+        // })
+        // typetwo.addEventListener("click", (e) => {
+        //     socket.emit("typetwo", { left: typetwo.innerHTML, right: "공부하세요" })
+        // })
+        // typethree.addEventListener("click", (e) => {
+        //     socket.emit("typethree", { left: typethree.innerHTML, right: "잘가~" })
+        // })
+
+        socket.on("back_msg1", (arg) => {
+            left.textContent = `${arg.left}: ${arg.right}`;
+
+        })
+    </script>
+</body>
+
+</html>

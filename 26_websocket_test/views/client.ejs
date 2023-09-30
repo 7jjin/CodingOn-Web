@@ -33,8 +33,8 @@
         //메세지 주고 받음
         socket.addEventListener('message', (event) => {
             console.log("event.data", event.data)
-            const parse = JSON.parse(event.data);
-            result_a.textContent = parse.typeOne;
+            const parse = JSON.parse(event.data);       //6. 서버에서 보내준 데이터를 파싱한다.
+            result_a.textContent = parse.typeOne;       //7. 각각의 textContent를 업데이트 해준다.
             result_b.textContent = parse.typeTwo;
         });
         //오류이벤트
@@ -51,7 +51,7 @@
         ///////////////////
         button_a.addEventListener("click", (evnet) => {
             socket.send(JSON.stringify({
-                vote: "typeOne"
+                vote: "typeOne"     // 1. typeOne버튼을 누르면 서버에 {vote:"typeOne"} 이라는 객체가 보내진다.
             }));
         })
         button_b.addEventListener("click", (evnet) => {

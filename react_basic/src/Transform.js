@@ -28,6 +28,7 @@ class TransForm extends Component {
   }
 
   render() {
+    const { inputWriter, inputTitle, comments } = this.state;
     return (
       <>
         <form>
@@ -37,7 +38,7 @@ class TransForm extends Component {
           <input
             id='title'
             type='text'
-            value={this.state.inputTitle}
+            value={inputTitle}
             onChange={(e) => this.setState({ inputTitle: e.target.value })}
           ></input>
           <button type='button' onClick={this.addComment}>
@@ -53,7 +54,7 @@ class TransForm extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.comments.map((value, index) => {
+            {comments.map((value, index) => {
               return (
                 <tr key={index}>
                   <td>{index + 1}</td>

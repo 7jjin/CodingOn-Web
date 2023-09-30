@@ -51,8 +51,8 @@ function App() {
       {/* <LifeCycleClass></LifeCycleClass> */}
       {/* <LifeCycleFunc></LifeCycleFunc> */}
       {/* <PostList></PostList> */}
-      {/* <button onClick={removeComponent}>연결해제</button>
-      {status && <UpdateList></UpdateList>} */}
+      <button onClick={removeComponent}>연결해제</button>
+      {status && <UpdateList></UpdateList>}
       {/* <RefSampleClass1></RefSampleClass1> */}
       {/* <RefSampleClass2></RefSampleClass2> */}
       {/* <BoardSearch></BoardSearch> */}
@@ -76,7 +76,7 @@ function App() {
       {/* var 2 */}
       {/* <Header /> */}
 
-      <RouterPrac1 />
+      {/* <RouterPrac1 /> */}
       {/* <Outlet /> */}
     </>
   );

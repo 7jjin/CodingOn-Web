@@ -29,6 +29,7 @@ export default function UpdateList() {
   // DOM업데이트 될 때마다
   useEffect(() => {
     console.log('유저 정보 업데이트', users.length);
+    console.log(users);
   }, [users]);
 
   return (

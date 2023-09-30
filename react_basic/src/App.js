@@ -16,6 +16,7 @@ import ColorButton from './ColorButton';
 import ShowButton from './ShowButton';
 import TransForm from './Transform';
 import CounterFunc from './CounterFunc';
+import BoardSearch from './BoardSearch';
 
 function App() {
   return (
@@ -44,7 +45,8 @@ function App() {
       {/* <ColorButton></ColorButton> */}
       {/* <ShowButton></ShowButton> */}
       {/* <TransForm></TransForm> */}
-      <CounterFunc></CounterFunc>
+      {/* <CounterFunc></CounterFunc> */}
+      <BoardSearch></BoardSearch>
     </>
   );
 }

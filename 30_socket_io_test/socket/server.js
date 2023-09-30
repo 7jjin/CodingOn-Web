@@ -21,13 +21,14 @@ app.get("/:room", (req, res) => {
 function getUsersInRoom(room) {
   const users = [];
   // 채팅룸에 접속한 socket.id값을 찾아야 함
-  const clients = io.sockets.adapter.rooms.get(room); // 모든 방의 정보를 저장
+  const clients = io.sockets.adapter.rooms.get(room); // 방이 만들어질 때 그 방에 대한 클라이언트 정보를 가져옴
+
   if (clients) {
     clients.forEach((socketId) => {
       // io.sockets.sockets: socket.id가 할당한 변수들의 객체값
       // 개별 사용자에게 메시지를 보내기 위해서 객체형태로 변경
       // key: 소켓아이디, name:이름
-
+      console.log(io.sockets.sockets.get(socketId).user);
       const userSocket = io.sockets.sockets.get(socketId);
       const info = { name: userSocket.user, key: socketId };
       users.push(info);

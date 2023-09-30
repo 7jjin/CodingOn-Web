@@ -28,10 +28,11 @@ wss.on("connection", (socket) => {
   sockets.push(socket);
   socket.send(JSON.stringify(votes));
   socket.on("message", (message) => {
-    const data = JSON.parse(message);
-    votes[data.vote]++;
+    const data = JSON.parse(message); // 2. 서버에서는 json 형태로 파싱한다.
+    votes[data.vote]++; // 3. votes객체에 typeOne의 값의 +1 해준다.
     sockets.forEach((elem) => {
-      elem.send(JSON.stringify(votes));
+      // 4. 여러 브라우저를 연다.
+      elem.send(JSON.stringify(votes)); // 5. 브라우저(프론트)에 변화된 votes객체를 보내준다.
     });
   });
   //오류이벤트

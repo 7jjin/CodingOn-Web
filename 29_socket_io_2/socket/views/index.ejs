@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="/socket.io/socket.io.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="main">
+            <form id="room">
+                <input type="text" id="roomName" placeholder="채팅방 만들기" />
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="사용자 이름 입력"
+                />
+                <button>만들기</button>
+            </form>
+            <ul id="lists"></ul>
+        </div>
+        <div id="body" hidden>
+            <ul id="msg"></ul>
+            <form id="chat">
+                <select id="userList"></select>
+                <input type="text" id="message" placeholder="메세지 입력" />
+                <button>입력</button>
+            </form>
+        </div>
+
+        <script>
+            const socket = io();
+            const roomForm = document.querySelector("#room");
+            const chatForm = document.querySelector("#chat");
+            const msg = document.querySelector("#msg");
+
+            let myNam;
+
+            //룸리스트
+            socket.on("roomList", (roomLists) => {
+                console.log(roomLists);
+                const lists = document.querySelector("#lists");
+                lists.textContent = "";
+                roomLists.forEach((roomList) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${roomList} 와 닉네임 입력 후 입장`;
+                    lists.appendChild(li);
+                });
+            });
+
+            //사용자 리스트
+            socket.on("userList", (userLists) => {
+                console.log(userLists);
+                const lists = document.querySelector("#userList");
+                lists.textContent = "";
+                let options = `<option value="all">전체</option>`;
+                for (let key in userLists) {
+                    options += `<option value="${key}">${userLists[key]}</option>`;
+                }
+                lists.innerHTML = options;
+            });
+            //메세지 띄우기
+            socket.on("newMessage", (message) => {
+                console.log(message);
+                const li = document.createElement("li");
+                li.textContent = message;
+                msg.appendChild(li);
+            });
+
+            ///폼 이벤트
+            roomForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const roomName = roomForm.querySelector("#roomName");
+                const userName = roomForm.querySelector("#userName");
+                if (roomName.value === "" || userName.value === "") {
+                    alert("방이름과 닉네임 적어주세요");
+                    return;
+                }
+                socket.emit("create", roomName.value, userName.value, () => {
+                    const main = document.querySelector("#main");
+                    const body = document.querySelector("#body");
+                    main.hidden = true;
+                    body.hidden = false;
+                });
+            });
+            chatForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const user = document.querySelector("#userList");
+                const message = document.querySelector("#message");
+                console.log(user.value);
+                const msg = {
+                    user: user.value,
+                    message: message.value,
+                };
+                socket.emit("sendMessage", msg);
+            });
+        </script>
+    </body>
+</html>
