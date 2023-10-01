@@ -23,6 +23,12 @@ const db = [
 ];
 
 const get_todo = (req, res) => {
+  Todo.findAll().then((data) => {
+    res.json({ data });
+  });
+  //   res.json({ data: db });
+};
+const post_todo = (req, res) => {
   Todo.create({
     id: req.body.id,
     title: req.body.title,
@@ -30,9 +36,7 @@ const get_todo = (req, res) => {
   }).then((result) => {
     console.log('result', result);
   });
-  res.json({ data: db });
 };
-const post_todo = (req, res) => {};
 const patch_todo = (req, res) => {};
 const delete_todo = (req, res) => {};
 
