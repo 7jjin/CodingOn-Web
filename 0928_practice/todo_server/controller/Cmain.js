@@ -38,6 +38,12 @@ const post_todo = (req, res) => {
   });
 };
 const patch_todo = (req, res) => {};
-const delete_todo = (req, res) => {};
+
+const delete_todo = (req, res) => {
+  console.log(req.body);
+  Todo.destroy({ where: { id: req.body.id } }).then((result) => {
+    res.json(result);
+  });
+};
 
 module.exports = { get_todo, post_todo, patch_todo, delete_todo };
