@@ -1,36 +1,26 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import InputTodo from './InputTodo';
 
 function App() {
-    const [todos, setTodos] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        const todoData = async () => {
-            const res = await axios({
-                method: "GET",
-                url: "http://localhost:8000/todos",
-            });
-            console.log(res.data.data);
-            setTodos(res.data.data);
-            setLoading(false);
-        };
-        todoData();
-    }, []);
+  //   useEffect(() => {
+  //     const todoData = async () => {
+  //       const res = await axios({
+  //         method: 'GET',
+  //         url: 'http://localhost:8000/todos',
+  //       });
+  //       setLoading(false);
+  //     };
+  //     todoData();
+  //   }, []);
 
-    return (
-        <div>
-            {loading ? (
-                <div>Loading...</div>
-            ) : (
-                <ul>
-                    {todos.map((value) => {
-                        return <li key={value.id}>{value.title}</li>;
-                    })}
-                </ul>
-            )}
-        </div>
-    );
+  return (
+    <div>
+      <InputTodo></InputTodo>
+    </div>
+  );
 }
 
 export default App;

@@ -30,19 +30,17 @@ const get_todo = (req, res) => {
 };
 const post_todo = (req, res) => {
   Todo.create({
-    id: req.body.id,
     title: req.body.title,
     done: req.body.done,
-  }).then((result) => {
-    console.log('result', result);
+  }).then((data) => {
+    res.json({ data });
   });
 };
 const patch_todo = (req, res) => {};
 
 const delete_todo = (req, res) => {
-  console.log(req.body);
-  Todo.destroy({ where: { id: req.body.id } }).then((result) => {
-    res.json(result);
+  Todo.destroy({ where: { id: req.body.id } }).then((data) => {
+    res.json(data);
   });
 };
 
