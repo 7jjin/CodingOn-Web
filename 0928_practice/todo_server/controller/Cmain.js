@@ -38,10 +38,10 @@ const post_todo = (req, res) => {
 };
 const patch_todo = (req, res) => {};
 
-const delete_todo = (req, res) => {
-  Todo.destroy({ where: { id: req.body.id } }).then((data) => {
-    res.json(data);
-  });
+const delete_todo = async (req, res) => {
+  const deleteList = await Todo.destroy({ where: { id: req.body.id } });
+  const searchAll = await Todo.findAll();
+  res.json(searchAll);
 };
 
 module.exports = { get_todo, post_todo, patch_todo, delete_todo };
