@@ -33,6 +33,8 @@ import Header from './12Router/Header';
 import { Outlet } from 'react-router-dom';
 import PR_navbar from './12Router/PR_navbar';
 import RouterPrac1 from './12Router/PR_router';
+import Form from './13Form/Form';
+import FormPractice from './13Form/FormPractice';
 
 function App() {
   const [status, setState] = useState(true);
@@ -51,8 +53,8 @@ function App() {
       {/* <LifeCycleClass></LifeCycleClass> */}
       {/* <LifeCycleFunc></LifeCycleFunc> */}
       {/* <PostList></PostList> */}
-      <button onClick={removeComponent}>연결해제</button>
-      {status && <UpdateList></UpdateList>}
+      {/* <button onClick={removeComponent}>연결해제</button>
+      {status && <UpdateList></UpdateList>} */}
       {/* <RefSampleClass1></RefSampleClass1> */}
       {/* <RefSampleClass2></RefSampleClass2> */}
       {/* <BoardSearch></BoardSearch> */}
@@ -78,6 +80,8 @@ function App() {
 
       {/* <RouterPrac1 /> */}
       {/* <Outlet /> */}
+      {/* <Form /> */}
+      <FormPractice />
     </>
   );
 }
