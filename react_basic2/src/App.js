@@ -35,6 +35,8 @@ import PR_navbar from './12Router/PR_navbar';
 import RouterPrac1 from './12Router/PR_router';
 import Form from './13Form/Form';
 import FormPractice from './13Form/FormPractice';
+import MyContext from './14Context/store/lang-context';
+import LanguageSelector from './14Context/LangSelector';
 
 function App() {
   const [status, setState] = useState(true);
@@ -42,46 +44,12 @@ function App() {
     setState(!status);
   };
 
+  const [language, setLanguage] = useState('ko');
   return (
     <>
-      {/* <ToggleFunc></ToggleFunc> */}
-      {/* <ToggleColor></ToggleColor> */}
-      {/* <ToggleShow></ToggleShow> */}
-      {/* <Board></Board> */}
-      {/* <Todo></Todo> */}
-      {/* <TodoMartin></TodoMartin> */}
-      {/* <LifeCycleClass></LifeCycleClass> */}
-      {/* <LifeCycleFunc></LifeCycleFunc> */}
-      {/* <PostList></PostList> */}
-      {/* <button onClick={removeComponent}>연결해제</button>
-      {status && <UpdateList></UpdateList>} */}
-      {/* <RefSampleClass1></RefSampleClass1> */}
-      {/* <RefSampleClass2></RefSampleClass2> */}
-      {/* <BoardSearch></BoardSearch> */}
-      {/* <RefSampleFunc1></RefSampleFunc1> */}
-      {/* <RefSampleFunc2></RefSampleFunc2> */}
-      {/* <RefPractice3></RefPractice3> */}
-      {/* <UseMemo></UseMemo> */}
-      {/* <UseCallbackComponent></UseCallbackComponent> */}
-      {/* <Count></Count> */}
-      {/* <SignupForm></SignupForm> */}
-      {/* <Style></Style> */}
-      {/* <SassComponent></SassComponent> */}
-      {/* <SassBug></SassBug> */}
-      {/* <SassCircle></SassCircle> */}
-      {/* <StyledComponent></StyledComponent> */}
-      {/* <StyledPractice></StyledPractice> */}
-      {/* <StyledPrac3></StyledPrac3> */}
-      {/* <StyledPrac4></StyledPrac4> */}
-      {/* var 1 */}
-      {/* <Router></Router> */}
-      {/* var 2 */}
-      {/* <Header /> */}
-
-      {/* <RouterPrac1 /> */}
-      {/* <Outlet /> */}
-      {/* <Form /> */}
-      <FormPractice />
+      <MyContext.Provider value={{ language: language, setLanguage: setLanguage }}>
+        <LanguageSelector />
+      </MyContext.Provider>
     </>
   );
 }
