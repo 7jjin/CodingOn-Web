@@ -1,9 +1,65 @@
 // 리덕스를 이용한 숫자증가, 감소 코드
 import { createStore } from 'redux';
 
+const input = document.querySelector('input');
+const form = document.querySelector('form');
+const ul = document.querySelector('ul');
+
+// 상수의 변수
+const ADD_TODO = 'ADD_TODO';
+const DELETE_TODO = 'DELETE_TODO';
+
+//reducer
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      const newTodo = { text: action.text, id: Date.now() };
+      return [newTodo, ...state];
+    case DELETE_TODO:
+      return state.filter((el) => Number(el.id) !== Number(action.id));
+    default:
+      return state;
+  }
+};
+//store
+const store = createStore(reducer);
+
+const removeTodo = (event) => {
+  event.preventDefault();
+  store.dispatch({ type: DELETE_TODO, id: event.target.parentNode.id });
+};
+
+store.subscribe(() => {
+  // 최신값 가져오기
+  const todos = store.getState();
+  // 모든 리스트를 지우고 재렌더링
+  ul.innerHTML = '';
+  todos.map((value) => {
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.innerText = '삭제';
+    btn.addEventListener('click', removeTodo);
+    li.id = value.id;
+    li.innerText = value.text;
+    li.appendChild(btn);
+    ul.appendChild(li);
+  });
+});
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  store.dispatch({ type: ADD_TODO, text: input.value });
+  input.value = '';
+});
+
+/*
 const add = document.querySelector('#add');
 const minus = document.querySelector('#minus');
 const num = document.querySelector('#num');
+
+const ADD = 'ADD';
+const MINUS = 'MINUS';
 
 const init = {
   count: 0,
@@ -13,12 +69,12 @@ const init = {
 const countReducer = (state = init, action) => {
   console.log(state, action);
   switch (action.type) {
-    case 'ADD':
-      return state.count + 1;
-    case 'MINUS':
-      return state.count - 1;
+    case ADD:
+      return { count: state.count + 1 };
+    case MINUS:
+      return { count: state.count - 1 };
     default:
-      return state.count;
+      return { count: state.count };
   }
 };
 
@@ -27,7 +83,19 @@ const countReducer = (state = init, action) => {
 const countStore = createStore(countReducer);
 console.log(countStore);
 
-countStore.dispatch({ type: 'ADD' });
+// subscribe()는 데이터와 저장소가 변경될 때마다 콜백함수를 실행
+countStore.subscribe(() => {
+  // getState()는 저장소에서 최신상태의 값을 반환할때 쓰는 메소드
+  num.textContent = countStore.getState().count;
+});
+
+add.addEventListener('click', () => {
+  countStore.dispatch({ type: ADD });
+});
+
+minus.addEventListener('click', () => {
+  countStore.dispatch({ type: MINUS });
+});
 
 console.log(countStore.getState());
 
@@ -44,3 +112,5 @@ console.log(countStore.getState());
 //   count = count - 1;
 //   num.textContent = count;
 // });
+
+*/
