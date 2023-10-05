@@ -17,7 +17,7 @@ import UpdateList from './UpdateList';
 
 import { useEffect, useState, useCallback, useContext } from 'react';
 import UseMemo from './10Hook/useMemo';
-import Count from './10Hook/useReducer';
+// import Count from './10Hook/useReducer';
 import UseCallbackComponent from './10Hook/useCallback';
 import SignupForm from './10Hook/useReducerPractice';
 import Style from './11Style/Style';
@@ -37,22 +37,42 @@ import Form from './13Form/Form';
 import FormPractice from './13Form/FormPractice';
 import MyContext, { LanguageProvider } from './14Context/store/lang-context';
 import LanguageSelector from './14Context/LangSelector';
-import ModeContext, { ModeProvider } from './14Context/store/mode-context';
+import ModeContext, { ModeProvider, SettingProvider } from './14Context/store/mode-context';
 import ModeSelector from './14Context/ModeSelector';
+import { ProductProvider } from './14Context/store/productList-context';
+import ProductList from './14Context/ProductList';
+import CartItem from './14Context/CartItem';
+import Count from './14Context/Count';
+import ProductList2 from './14Context/14P_Context/ProductList';
+import Cart from './14Context/14P_Context/Cart';
+import { CartProvider } from './14Context/14P_Context/store/cart-context';
 
 function App() {
   return (
     <>
-      <div>
-        {/* 언어 */}
+      {/* <div>
+        언어
         <LanguageProvider>
           <LanguageSelector />
         </LanguageProvider>
-        {/* 테마 */}
+        테마
         <ModeProvider>
           <ModeSelector />
         </ModeProvider>
-      </div>
+      </div> */}
+
+      {/* 내가 한거 */}
+      <ProductProvider>
+        <ProductList />
+        <CartItem />
+        <Count />
+      </ProductProvider>
+
+      {/* 리더님이 한거 */}
+      {/* <CartProvider>
+        <ProductList2 />
+        <Cart />
+      </CartProvider> */}
     </>
   );
 }
