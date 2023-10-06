@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { ADD_TODO } from './store/todo';
+import { ADD_TODO, DELETE_TODO } from './store/todo';
 
 export default function Main() {
   const [text, setText] = useState('');
@@ -20,6 +20,10 @@ export default function Main() {
     setText('');
   };
 
+  const onClick = (id) => {
+    dispatch({ type: DELETE_TODO, id });
+  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -32,6 +36,7 @@ export default function Main() {
           return (
             <li key={todo.id} id={todo.id}>
               {todo.text}
+              <button onClick={() => onClick(todo.id)}>삭제</button>
             </li>
           );
         })}
