@@ -1,4 +1,6 @@
 // 리덕스를 이용한 숫자증가, 감소 코드
+
+/*
 import { createStore } from 'redux';
 
 const input = document.querySelector('input');
@@ -10,12 +12,16 @@ const ADD_TODO = 'ADD_TODO';
 const DELETE_TODO = 'DELETE_TODO';
 
 //reducer
+// state: 초기값설정, action: dispatch로 받아온 값
+// 예를 들어 dispatch type:ADD_TODO 인경우는 text: input.value를 보냈으니깐 action에서는 action.text로 받을 수있다.
 const reducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
+      // 현재는 state의 초기값을 빈 배열로 만들었기 때문에 ADD_TODO가 실행될 때마다 새로운 객체를 넣어준다.
       const newTodo = { text: action.text, id: Date.now() };
       return [newTodo, ...state];
     case DELETE_TODO:
+      // 클릭한 id와 리스트에 있는 요소의 id가 다른것만 출력
       return state.filter((el) => Number(el.id) !== Number(action.id));
     default:
       return state;
@@ -31,6 +37,7 @@ const removeTodo = (event) => {
 
 store.subscribe(() => {
   // 최신값 가져오기
+  // 데이터 최신화 한 것을 출력해주는 것이 여기인 듯. 데이터 최신화 한것을 todos에 넣는다.
   const todos = store.getState();
   // 모든 리스트를 지우고 재렌더링
   ul.innerHTML = '';
@@ -48,7 +55,6 @@ store.subscribe(() => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-
   store.dispatch({ type: ADD_TODO, text: input.value });
   input.value = '';
 });
@@ -114,3 +120,18 @@ console.log(countStore.getState());
 // });
 
 */
+
+import React from 'react';
+import ReactDom from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store/todo';
+
+const root = ReactDom.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
