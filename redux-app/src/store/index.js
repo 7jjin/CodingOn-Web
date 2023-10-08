@@ -41,6 +41,7 @@ import loginSlice from './login';
 //   },
 // });
 
+// 스토어 생성
 const store = configureStore({
   reducer: { count: counterSlice, login: loginSlice },
 });
